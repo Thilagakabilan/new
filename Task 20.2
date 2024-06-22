@@ -1,0 +1,56 @@
+package task;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Task20_2 {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.guvi.in/");
+		
+		driver.findElement(By.linkText("Sign up")).click();
+		driver.findElement(By.id("name")).sendKeys("Thilak");
+		driver.findElement(By.id("email")).sendKeys("thilagavathy1017@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("123456789@T");
+		driver.findElement(By.id("mobileNumber")).sendKeys("1234567890");
+		driver.findElement(By.id("signup-btn")).click();
+		
+//		driver.findElement(By.id("laterBtn")).click();
+		
+		if(driver.findElement(By.tagName("h1")).getText().equalsIgnoreCase("Almost Done! Check Your Inbox!")) {
+			System.out.println("Registered Successfully");
+		}else {
+			System.err.println("Registeration Failed");
+		}
+		
+		Thread.sleep(30000);
+//		Mean while Go to your inbox n verify the link to register successfully
+		
+		driver.findElement(By.id("email")).sendKeys("thilagavathy1017@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("123456789@T");
+		driver.findElement(By.id("login-btn")).click();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		
+		if(driver.findElement(By.tagName("h6")).getText().equalsIgnoreCase("Thilak")) {
+			System.out.println("User Logged in successfully");
+		}else
+		{
+			System.err.println("Login Failed");
+		}
+		
+		driver.quit();
+		
+	}
+
+}
