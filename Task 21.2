@@ -1,0 +1,49 @@
+package task;
+
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Task21_2 {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://the-internet.herokuapp.com/windows");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+		String ParentWindowHandle=driver.getWindowHandle();
+		driver.findElement(By.linkText("Click Here")).click();
+		
+		Set<String> WinHandles=driver.getWindowHandles();
+		
+		for(String handle:WinHandles) {
+			if(!ParentWindowHandle.equals(handle))
+				driver.switchTo().window(handle);
+		}
+		
+		
+		if(driver.findElement(By.tagName("h3")).getText().equalsIgnoreCase("New Window")) {
+			System.out.println("Navigated to child window");
+			driver.close();
+		}
+		
+		driver.switchTo().window(ParentWindowHandle);
+		if(driver.getTitle().equalsIgnoreCase("The Internet")) {
+			System.out.println("Parent window is active");
+			driver.quit();
+			
+		}
+	}
+
+}
