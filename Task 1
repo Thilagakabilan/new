@@ -1,0 +1,41 @@
+1.	What are the different types of testing?
+•	Manual Testing
+a.	White box 
+b.	Blackbox
+•	Functional Testing
+a)	Unit
+b)	Integration
+c)	System
+•	Non-Functional Testing
+a)	Performance
+b)	Usability
+c)	Compatability
+c.	Greybox	
+•	Automation Testing
+2.What are different STLC phases?
+1.	Requirement Analysis
+2.	Test Planning
+3.	Test Design
+4.	Test Environment Setup
+5.	Test Execution
+6.	Test Closure
+3.As a manual tester what are the qualities we need to posses?
+•	We need to analyze the data.
+•	Understanding of the priorities.
+•	Asking questions to get more clarity and information.
+•	Creating more ideas on how to test the application in different ways.
+•	Reporting the work.
+•	We need to be flexible and support whenever required.
+•	Relate yourself in testing with real time scenarios.
+4.Difference between waterfall and agile methodology in SDLC?
+Waterfall is a linear and sequential approach to software development, where each phase of the project must be completed before moving on to the next. 
+Agile is an iterative and incremental approach to software development, focusing on flexibility, collaboration, and customer feedback. It values adaptability and delivering working software frequently.
+The main differences between Agile and Waterfall methodologies:
+1.	Flexibility: Agile is adaptable to change, while Waterfall follows a rigid, predefined plan.
+2.	Project Phases: Agile emphasizes iterative progress, while Waterfall divides the project into distinct phases.
+3.	Customer Involvement: Agile encourages continuous customer feedback, while Waterfall typically involves customers at the beginning and end of the project.
+4.	Documentation: Agile focuses on working software, while Waterfall emphasizes comprehensive documentation.
+5.	Risk Management: Agile allows for early identification and mitigation of risks, while Waterfall may not reveal risks until later in the project.
+
+
+
