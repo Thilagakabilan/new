@@ -1,0 +1,118 @@
+package task;
+
+import java.util.Scanner;
+
+public class Task08 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+/* 1. Check sum of a and b is greater than sum of c and d */
+		int a=25,b=10,c=6,d=9;
+
+		
+		if((a+b)>(c+d)) {
+			System.out.println("Sum of a and b is greater than sum of c and d");
+		}else
+		{
+			System.out.println("Sum of a and b is lesser than or equal to sum of c and d");
+		}
+		
+	/* 2. Check the number is even or not */	
+		int e=24;
+		if(e%2==0) {
+			System.out.println("Given integer is an even number");
+		}else {
+			System.out.println("Given integer is not an even number");
+		}
+		
+		/* 3. Print characters from A to Z */
+		char ch;
+	      for(ch = 'A'; ch <= 'Z'; ch++) {
+	    	  System.out.println(ch + " ");
+	      }
+	      
+	  /* 4. Swapping of two numbers */
+	      
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the a1 number");
+	    int a1=sc.nextInt();
+	    System.out.println("Enter the b1 number");
+	    int b1=sc.nextInt();
+	    int c1=a1;
+	    a1=b1;
+	    b1=c1;
+	    System.out.println("a1="+a1 +","+ "b1="+b1); 
+		
+		/* 5. Finding whether Prime number or Not */
+	    
+	  Scanner sc1=new Scanner(System.in);
+	    System.out.println("Enter the p1 number");
+	    int p1=sc1.nextInt();
+	    
+	    int m=0,flag=0;
+	    m=p1/2;
+	    if(p1==0||p1==1) {
+	    	System.out.println(p1+" is not a prime number");
+	    }else {
+	    for(int i=2;i<=m;i++) {
+	    	if(p1%i==0) {
+	    		System.out.println(p1+" is not a prime number");
+	    	flag=1;
+	    	break;
+	    }
+	    }
+	    if(flag==0) {
+	    	System.out.println(p1+" is a prime number");
+	    }
+	}
+		
+	    /* 6. Factorial of a given number */
+	    int num=5;
+        int i=1,fact=1;
+        while(i<=num)
+        {
+            fact=fact*i;
+            i++;
+        }
+        System.out.println("Factorial of the number: "+fact);  
+        
+        /* 7.Length of a given string */
+        
+       String msg="Guvi Geek";
+        System.out.println("Length of the string is :"+msg.length()); 
+
+         /* 8. Print the given string 10 times" */
+        int n=10;
+        for (int j=1;j<=n;j++) {
+        	System.out.println("Welcome to Guvi");
+        } 
+
+        /* 9. Check whether the person is senior citizen or not */
+        Scanner scage=new Scanner(System.in);
+        System.out.println("Enter the Year of Birth: ");
+        int birthyr=scage.nextInt();
+        int currentyr=2024;
+        if((currentyr-birthyr)>=60)   {
+        	System.out.println("The person is a senior citizen");
+        }else {
+        	System.out.println("The person is not a senior citizen");
+        }
+
+        /* 10. Check the no of digits in an integer */
+        int num=134;
+        int count = 0;
+        if(num==0)
+        System.out.print("Number of Digits = 1");
+        else{
+        while(num != 0)
+        {
+        count++;
+        num = num / 10;
+        }
+        System.out.print("Number of Digits is "+count);
+        }
+	    
+	}
+
+}
