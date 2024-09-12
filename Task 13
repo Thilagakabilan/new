@@ -1,0 +1,107 @@
+1.Write data to excel
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class WriteToExcel {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		XSSFWorkbook wb=new XSSFWorkbook();
+		FileOutputStream fos = new FileOutputStream("C://Users//harshi//Desktop//Task//Workbook.xlsx");
+		XSSFSheet sheet=wb.createSheet("Sheet1");
+		
+		
+			XSSFRow row0 = sheet.createRow(0);
+			XSSFCell cell0 = row0.createCell(0);
+			cell0.setCellValue("Name");
+			XSSFCell cell1 = row0.createCell(1);
+			cell1.setCellValue("Age");
+			XSSFCell cell2 = row0.createCell(2);
+			cell2.setCellValue("Email");
+			
+			XSSFRow row1 = sheet.createRow(1);
+			XSSFCell cell10 = row1.createCell(0);
+			cell10.setCellValue("John Doe");
+			XSSFCell cell11 = row1.createCell(1);
+			cell11.setCellValue("30");
+			XSSFCell cell12 = row1.createCell(2);
+			cell12.setCellValue("john@test.com");
+			
+			XSSFRow row2 = sheet.createRow(2);
+			XSSFCell cell20 = row2.createCell(0);
+			cell20.setCellValue("Jane Doe");
+			XSSFCell cell21 = row2.createCell(1);
+			cell21.setCellValue("28");
+			XSSFCell cell22 = row2.createCell(2);
+			cell22.setCellValue("john@test.com");
+			
+			XSSFRow row3 = sheet.createRow(3);
+			XSSFCell cell30 = row3.createCell(0);
+			cell30.setCellValue("Bob Smith");
+			XSSFCell cell31 = row3.createCell(1);
+			cell31.setCellValue("28");
+			XSSFCell cell32 = row3.createCell(2);
+			cell32.setCellValue("jacky@example.com");
+			
+			XSSFRow row4 = sheet.createRow(4);
+			XSSFCell cell40 = row4.createCell(0);
+			cell40.setCellValue("Swapnil");
+			XSSFCell cell41 = row4.createCell(1);
+			cell41.setCellValue("37");
+			XSSFCell cell42 = row4.createCell(2);
+			cell42.setCellValue("swapnil@example.com");	
+			
+			wb.write(fos);
+			fos.close();
+
+	}
+
+}
+
+2. Reading data from excel and printing in console
+
+package task;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadFromExcel {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String path="C://Users//harshi//Desktop//Task//Workbook.xlsx";
+		FileInputStream fis=new FileInputStream(path);
+		
+		XSSFWorkbook wb=new XSSFWorkbook(fis);
+		XSSFSheet sheet=wb.getSheet("Sheet1");
+		
+		for(int i=0;i<5;i++) {
+		XSSFRow row=sheet.getRow(i);
+			for(int j=0;j<3;j++) {
+				XSSFCell cell=row.getCell(j);
+				System.out.print(cell.getStringCellValue() + " ");
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+
