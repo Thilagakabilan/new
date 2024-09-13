@@ -1,0 +1,196 @@
+1.public class DisplayException {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enetr the first Number : ");
+			int n1=sc.nextInt();
+			System.out.println("Enter the second number : ");
+			int n2=sc.nextInt();
+			
+			int res=n1/n2;
+			System.out.println("Result : " + res);
+		} catch (Exception e) {
+
+			System.out.println("Error : n1 is "+e.getMessage());
+			System.err.println(e);
+		}
+		
+		
+	}
+
+}
+
+2.public class AraayIndexOutOfBound {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ArrayList<String> lis=new ArrayList<String>();
+		lis.add("Text1");
+		lis.add("Text2");
+		System.out.println(lis);
+		
+		try {
+		for(int i=0;i<=lis.size();i++) {
+			System.out.println(lis.get(i));
+		}
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		int arr[]= {1,2,3};
+		
+			for(int num: arr) {
+				System.out.println(num);
+			
+		}
+		
+		
+	}
+
+}
+
+public class StringIndexOutOfBound {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str1="GuviPlatform";
+		
+		try {
+			String substring=str1.substring(13,12);
+			System.out.println(substring);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+
+	}
+
+}
+
+3.public class InvalidAgeException extends Exception {
+
+	InvalidAgeException(String msg) {
+		// TODO Auto-generated method stub
+		super(msg);
+	}
+}
+public class CustomExcepAge {
+	public static void main(String[] args) {
+		
+		  try {
+			  Scanner sc=new Scanner(System.in);
+			  System.out.println("Enter Your age : ");
+			  int age=sc.nextInt();
+			  if(age<18) {
+			  throw new InvalidAgeException("You are not Eligible to vote");
+			  }else {
+				  System.out.println("Welcome to vote");
+			  }
+		  }catch(InvalidAgeException e){
+			 System.out.println("Exception Caught"); 
+		  System.out.println(e);
+		  }
+		  }
+
+4.
+public class FileNotFound {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+		String path="C://Users//harshi//Desktop//Task//Workbook112.xlsx";
+		FileInputStream fis=new FileInputStream(path);
+		XSSFWorkbook wb=new XSSFWorkbook(fis);
+		XSSFSheet sheet=wb.getSheet("Sheet1");
+		
+		for(int i=0;i<5;i++) {
+			XSSFRow row=sheet.getRow(i);
+				for(int j=0;j<3;j++) {
+					XSSFCell cell=row.getCell(j);
+					System.out.print(cell.getStringCellValue() + " ");
+				}
+				System.out.println();
+		}
+		}catch(Exception e) {
+			System.out.println("Error :File not found ");
+			System.out.println(e);
+		}
+
+	
+
+}
+}
+
+5. 
+public class ArrayListOfStrings {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<String> arrListstr=new ArrayList<String>();
+		arrListstr.add("Name");
+		arrListstr.add("Age");
+		arrListstr.add("EmpID");
+		System.out.println(arrListstr);
+		arrListstr.remove(1);
+		System.out.println(arrListstr);
+		arrListstr.clear();
+		System.out.println(arrListstr);
+		
+	}
+
+}
+
+6.
+public class TreeMapping {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TreeMap<String,Integer> treeMap=new TreeMap< String,Integer>();
+		treeMap.put( "Swapnil",11);
+		treeMap.put( "Sanjay",12);
+		treeMap.put( "Abhinav",13);
+		treeMap.put( "Mithra",14);
+		
+		for(Entry<String, Integer> entry:treeMap.entrySet()) {
+		System.out.println(entry.getKey());
+		}
+		
+		
+
+	}
+
+}
+
+7.
+public class ListToArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayList <String> arrList=new ArrayList<String>();
+		arrList.add("Java");
+		arrList.add("JS");
+		arrList.add("Selenium");
+		
+		System.out.println(arrList);
+		String[] arr=new String[arrList.size()];
+		arrList.toArray(arr);
+		
+		for(String newarr:arr) {
+			System.out.println(newarr);
+		}
+		
+
+	}
+
+}
+
