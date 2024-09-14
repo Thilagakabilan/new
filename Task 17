@@ -1,0 +1,70 @@
+package task;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.asserts.Assertion;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Task17 {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.snapdeal.com/");
+		driver.manage().window().maximize();
+		
+		
+		WebElement signUp=driver.findElement(By.xpath("//*[contains(text(),'Sign In')]"));
+		
+		Actions act=new Actions(driver);
+		act.moveToElement(signUp).build().perform();
+		
+		WebElement Login=driver.findElement(By.xpath("//a[contains(text(),'login')]"));
+		Login.click();
+		List<WebElement> framesize=driver.findElements(By.tagName("iframe"));
+		System.out.println(framesize.size());
+		
+		WebElement iframe=driver.findElement(By.id("loginIframe"));
+		driver.switchTo().frame(iframe);
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.xpath("//*[@id='userName']")).sendKeys("abc@gmail.com");
+		driver.findElement(By.id("checkUser")).click();
+		
+		
+		driver.findElement(By.id("j_number")).sendKeys("9884626994");
+		driver.findElement(By.id("j_name")).sendKeys("Thilak");
+		
+		Action keydown=act.keyDown(Keys.CONTROL).sendKeys("a").build();
+		keydown.perform();
+		
+		driver.findElement(By.id("j_dob")).sendKeys("28/01/1992");
+		driver.findElement(By.id("j_password")).sendKeys("Saibaba@2024");
+		driver.findElement(By.id("userSignup")).click();
+		
+		/*Enter the OTP manually and click to login 8*/
+		
+		
+		WebElement logout=driver.findElement(By.linkText("Logout"));
+		if(logout.isDisplayed()) {
+		System.out.println("User is Logged in Successfully");
+		}
+		
+		
+		
+	}
+
+}
